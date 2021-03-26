@@ -1,0 +1,53 @@
+﻿@model MovieSiteV2.Models.Movie
+
+
+<form asp-action="Edit" method="post">
+    <div>
+        <label asp-for="title">Title:</label>
+        <input asp-for="title" value="@Model.title" required />
+    </div>
+
+    <div>
+        <label asp-for="category">Category:</label>
+        <input asp-for="category" value="@Model.category" required />
+    </div>
+
+    <div>
+        <label asp-for="year">Year:</label>
+        <input asp-for="year" value="@Model.year" required />
+    </div>
+
+    <div>
+        <label asp-for="director">Director:</label>
+        <input asp-for="director" required />
+    </div>
+
+    <div>
+        <label asp-for="rating">Rating:</label>
+        <select asp-for="rating" required>
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="edited">Edited? (Optional)</label>
+        <input type="checkbox" asp-for="edited" />
+    </div>
+
+    <div>
+        <label asp-for="lent_to">Lent To (Optional)</label>
+        <input asp-for="lent_to" />
+    </div>
+
+    <div>
+        <label asp-for="notes">Notes (Optional)</label>
+        <input asp-for="notes" maxlength="25" />
+    </div>
+
+    <input type="hidden" name="selectedId" value="@Model.MovieId"/>
+    <button type="submit">Update Movie</button>
+
+</form>

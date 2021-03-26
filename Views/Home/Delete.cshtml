@@ -1,0 +1,42 @@
+﻿
+<h1>Delete Selected Movie</h1>
+
+<h3>Selected Movie Info</h3>
+<div class="border-dark align-content-center">
+    <h3>Title: @Model.title</h3>
+    <p>@Model.category</p>
+    <p>Director: @Model.director</p>
+    <p>Year: @Model.year</p>
+    <p>Rating: @Model.rating</p>
+    <p>Edited? @Model.edited</p>
+
+    @if (Model.lent_to != null)
+    {
+        <p>Lent to: @Model.lent_to</p>
+    }
+    else
+    {
+        <p>This movie has not been lent out.</p>
+    }
+
+    @if (Model.notes != null)
+    {
+        <p>Notes: @Model.notes</p>
+    }
+    else
+    {
+        <p>No notes on this movie.</p>
+    }
+<form asp-action="Delete" method="post">
+    <input type="hidden" name="selectedMovie.MovieId" value="@Model.MovieId" />
+    <input type="hidden" name="selectedMovie.title" value="@Model.title" />
+    <input type="hidden" name="selectedMovie.category" value="@Model.category" />
+    <input type="hidden" name="selectedMovie.director" value="@Model.director" />
+    <input type="hidden" name="selectedMovie.year" value="@Model.year" />
+    <input type="hidden" name="selectedMovie.rating" value="@Model.rating" />
+    <input type="hidden" name="selectedMovie.edited" value="@Model.edited" />
+    <input type="hidden" name="selectedMovie.lent_to" value="@Model.lent_to" />
+    <input type="hidden" name="selectedMovie.notes" value="@Model.notes" />
+    <button type="submit">Delete this movie</button>
+</form>
+</div>

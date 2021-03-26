@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Movie>
+
+<h1>List of All Movies</h1>
+
+<div class="justify-content-center">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Director</th>
+                <th>Year</th>
+                <th>Rating</th>
+                <th>Edited? (default false)</th>
+                <th>Lent out To</th>
+                <th>Notes</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.title</td>
+                <td>@x.category</td>
+                <td>@x.director</td>
+                <td>@x.year</td>
+                <td>@x.rating</td>
+                <td>@x.edited</td>
+                <td>@x.lent_to</td>
+                <td>@x.notes</td>
+                <td><button><a asp-action="Edit" asp-route-selectedId="@x.MovieId">Edit</a></button></td>
+                <td><button><a asp-action="Delete" asp-route-selectedId="@x.MovieId">Delete</a></button></td>
+            </tr>
+        }
+    </table>
+</div>
+
